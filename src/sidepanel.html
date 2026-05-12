@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Binance Chart Predictor</title>
+      <script type="module" crossorigin src="../assets/sidepanel.js"></script>
+      <link rel="stylesheet" crossorigin href="../assets/sidepanel.css">
+    </head>
+    <body>
+        <main id="app" class="shell">
+            <section
+                id="license-gate"
+                class="license-gate"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="license-title"
+            >
+                <div class="license-card">
+                    <p class="eyebrow">License required</p>
+                    <h2 id="license-title">Activate extension</h2>
+                    <p class="license-description">
+                        Enter your license key to unlock the predictor. Contact Telegram
+                        <strong>@zed_crypto_assistant_bot</strong> to get your key.
+                    </p>
+                    <form id="license-form" class="license-form">
+                        <input
+                            id="license-key-input"
+                            type="text"
+                            autocomplete="off"
+                            spellcheck="false"
+                            autofocus
+                        />
+                        <button id="license-submit-button" type="submit">
+                            Verify key
+                        </button>
+                    </form>
+                    <p id="license-message" class="license-message"></p>
+                </div>
+            </section>
+
+            <section class="trading-header">
+                <h1>Signal Predictor</h1>
+                <div class="license-summary">
+                    <span id="license-plan-label" class="license-plan-label">
+                        Trial
+                    </span>
+                    <button
+                        id="change-token-button"
+                        class="change-token-button"
+                        type="button"
+                        title="Change license key"
+                        aria-label="Change license key"
+                    >
+                        ⚿
+                    </button>
+                </div>
+            </section>
+
+            <section id="upgrade-info" class="upgrade-info">
+                <strong>Free plan:</strong> valid for 5 days. Upgrade to Gold
+                or Diamond to unlock more symbols, all timeframes, and premium
+                access. Contact Telegram:
+                <span>@zed_crypto_assistant_bot</span>
+            </section>
+
+            <form id="prediction-form" class="control-panel">
+                <div class="symbol-picker field-card-symbol">
+                        <button
+                            id="symbol-picker-button"
+                            class="symbol-picker-button"
+                            type="button"
+                            aria-expanded="false"
+                        >
+                            Select symbols
+                        </button>
+                        <div id="symbol-input" class="symbol-menu" hidden>
+                            <div class="custom-symbol-row">
+                                <input
+                                    id="custom-symbol-input"
+                                    type="text"
+                                    placeholder="Add custom, e.g. 1000CATUSDT"
+                                    autocomplete="off"
+                                    spellcheck="false"
+                                />
+                                <button
+                                    id="add-custom-symbol-button"
+                                    type="button"
+                                >
+                                    Add
+                                </button>
+                            </div>
+                            <div
+                                id="symbol-option-list"
+                                class="symbol-option-list"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interval-picker field-card-interval">
+                        <button
+                            id="interval-picker-button"
+                            class="symbol-picker-button"
+                            type="button"
+                            aria-expanded="false"
+                        >
+                            Select TF
+                        </button>
+                        <div id="interval-input" class="symbol-menu" hidden>
+                            <div
+                                id="interval-option-list"
+                                class="symbol-option-list"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+
+                <input id="confidence-input" name="confidence" type="hidden" />
+                <input id="limit-input" name="limit" type="hidden" />
+
+                <button id="predict-button" class="scan-button" type="submit">
+                    Scan
+                </button>
+            </form>
+
+            <section class="status-card">
+                <span id="status-indicator" class="status-indicator"></span>
+                <div>
+                    <p class="status-label">Status</p>
+                    <p id="status-message">Ready.</p>
+                </div>
+            </section>
+
+            <section id="result-panel" class="result-panel" hidden>
+                <div class="result-heading">
+                    <div>
+                        <p class="eyebrow">Live</p>
+                        <h2>Signals</h2>
+                    </div>
+                    <div class="signal-count-box">
+                        <span id="result-count">0</span>
+                        <small>items</small>
+                    </div>
+                </div>
+                <div id="result-list" class="result-list"></div>
+            </section>
+
+            <section id="chart-card" class="chart-card" hidden>
+                <div class="chart-heading">
+                    <div>
+                        <p class="eyebrow">Chart</p>
+                        <h2>Evidence</h2>
+                    </div>
+                    <span id="chart-symbol">All selected symbols</span>
+                </div>
+                <div id="chart-list" class="chart-list"></div>
+            </section>
+        </main>
+
+    </body>
+</html>
